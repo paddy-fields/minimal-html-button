@@ -1,0 +1,75 @@
+$heart-color: #CD0008;
+$heart-size: 15px;
+$heart-code: "\f004";
+$heart-offset: 70px;
+$heart-valign: 5px; 
+
+$thumb-code: "\f087";
+$thumb-color: yellow;
+
+body {
+	padding-top: 50px;
+}
+
+a {
+	position: relative;
+	
+	// size
+	padding: 25px 100px;
+
+	// font
+	text-decoration: none;
+	text-transform: uppercase;
+	color: white;
+	font-family: arial;
+	font-size: 20px;
+
+	// background gradient
+	background: linear-gradient(#5C5C5C, #161616 30%);
+
+	// main border
+	border: 4px solid white;
+	border-radius: 35px;
+
+	// box shadow (shadow affect, and secondary border)
+	box-shadow: 5px 5px 13px lighten(black,50),
+				0 0 0 4px black; 		
+
+	// left heart
+	&::before {
+		position: absolute;
+		content: $heart-code; 
+		color: $heart-color;
+		font-size: $heart-size;
+  		font-family: FontAwesome;
+	 	left: $heart-offset;
+	 	padding-top: $heart-valign;
+	}
+
+	// right heart
+	&::after {
+		position: absolute;
+		content: $heart-code;
+		color: $heart-color; 
+		font-size: $heart-size;
+  		font-family: FontAwesome;
+	 	right: $heart-offset;
+	 	padding-top: $heart-valign;
+	}
+
+	// hover affect
+	&:hover {
+		background: linear-gradient(#A85750, $heart-color 30%);
+		&::after {
+			color: white; 
+		}
+		&::before {
+			color: white; 
+		}
+	}
+}
+
+
+
+
+
